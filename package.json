@@ -1,0 +1,43 @@
+{
+  "name": "ai-evolving-rpg",
+  "version": "0.1.0",
+  "description": "An evolving RPG that transforms from pixel-art to high-fidelity, AI-driven experience",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
+    "test": "jest"
+  },
+  "dependencies": {
+    "three": "^0.152.0",
+    "howler": "^2.2.3",
+    "localforage": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.8",
+    "@babel/preset-env": "^7.21.8",
+    "babel-loader": "^9.1.2",
+    "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.1",
+    "jest": "^29.5.0",
+    "style-loader": "^3.3.2",
+    "webpack": "^5.82.0",
+    "webpack-cli": "^5.1.1",
+    "webpack-dev-server": "^4.15.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/ai-evolving-rpg.git"
+  },
+  "keywords": [
+    "rpg",
+    "game",
+    "threejs",
+    "webgl",
+    "pixel-art",
+    "ai"
+  ],
+  "author": "Your Name",
+  "license": "MIT"
+}

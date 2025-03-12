@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Evolving RPG</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: #000;
+    }
+    
+    #game-container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    
+    #loading-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+      color: #fff;
+      font-family: 'Courier New', Courier, monospace;
+    }
+    
+    #loading-progress {
+      width: 50%;
+      height: 20px;
+      border: 2px solid #fff;
+      margin-top: 20px;
+    }
+    
+    #loading-bar {
+      width: 0%;
+      height: 100%;
+      background-color: #3498db;
+      transition: width 0.3s ease;
+    }
+    
+    #game-title {
+      font-size: 2em;
+      margin-bottom: 10px;
+      letter-spacing: 2px;
+    }
+    
+    .pixel-text {
+      text-shadow: 2px 2px 0px #000;
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-screen">
+    <div id="game-title" class="pixel-text">AI-EVOLVING RPG</div>
+    <div id="loading-text" class="pixel-text">Loading...</div>
+    <div id="loading-progress">
+      <div id="loading-bar"></div>
+    </div>
+  </div>
+  
+  <script>
+    // Simple loading animation
+    let progress = 0;
+    const loadingBar = document.getElementById('loading-bar');
+    const loadingScreen = document.getElementById('loading-screen');
+    
+    function updateLoading() {
+      progress += Math.random() * 10;
+      if (progress > 100) progress = 100;
+      loadingBar.style.width = progress + '%';
+      
+      if (progress < 100) {
+        setTimeout(updateLoading, 200);
+      }
+    }
+    
+    updateLoading();
+    
+    // Hide loading screen when game has loaded
+    window.addEventListener('load', function() {
+      loadingBar.style.width = '100%';
+      setTimeout(() => {
+        loadingScreen.style.opacity = 0;
+        loadingScreen.style.transition = 'opacity 1s ease';
+        setTimeout(() => {
+          loadingScreen.style.display = 'none';
+        }, 1000);
+      }, 500);
+    });
+  </script>
+</body>
+</html>
